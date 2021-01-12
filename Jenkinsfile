@@ -8,6 +8,7 @@ pipeline {
         
             steps {
             echo "Docker Build"
+            sh('build.sh')
             }
         
         }
