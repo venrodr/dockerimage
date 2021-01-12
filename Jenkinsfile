@@ -20,7 +20,6 @@ pipeline {
             echo "Docker Run"
             sh "chmod +x ./container.sh"
             sh "./container.sh"   
-            sh "sleep 60"  
             }
         }    
 
