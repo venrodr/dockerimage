@@ -14,6 +14,17 @@ pipeline {
         
         }
         
+         stage("Install agent") {
+        
+            steps {
+            echo "Deploy Agent"
+            sh "chmod +x ./deploy.sh"    
+            sh "./deploy.sh"
+            sh "sleep 20"    
+            }
+        
+        }      
+        
         stage("Run Image") {
         
             steps {
