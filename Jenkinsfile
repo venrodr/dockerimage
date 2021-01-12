@@ -33,6 +33,7 @@ pipeline {
             sh "./container.sh"   
             sh "sleep 60"  
             }
+        }    
             
         stage("Delete DSA") {
         
