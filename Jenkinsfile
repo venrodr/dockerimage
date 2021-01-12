@@ -19,6 +19,7 @@ pipeline {
             steps {
             echo "Docker Run"
             sh "chmod +x ./container.sh"
+            sh "./container.sh"    
             }
         
         } 
