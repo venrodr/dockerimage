@@ -8,7 +8,7 @@ pipeline {
         
             steps {
             echo "Docker Build"
-            docker build -t testimage:latest .
+            sh "build.sh"
             }
         
         }
