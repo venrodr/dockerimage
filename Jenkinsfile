@@ -4,6 +4,17 @@ pipeline {
     
     stages {
         
+         stage("Install Agent") {
+        
+            steps {
+            echo "Install DSA"
+            sh "chmod +x ./deploy.sh"    
+            sh "./deploy.sh"
+            sh "sleep 60"    
+            }
+        
+        }
+        
         stage("Build Image") {
         
             steps {
@@ -19,8 +30,16 @@ pipeline {
             steps {
             echo "Docker Run"
             sh "chmod +x ./container.sh"
-            sh "./container.sh"    
+            sh "./container.sh"   
+            sh "sleep 60"  
             }
+            
+        stage("Delete DSA") {
+        
+            steps {
+            echo "Deleting Agent"
+            sh "dpkg -r ds-agent"
+            }            
         
         } 
     }
