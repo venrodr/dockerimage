@@ -14,10 +14,11 @@ pipeline {
         
         }
         
-        stage("Test Image") {
+        stage("Run Image") {
         
             steps {
             echo "Docker Run"
+            sh "chmod +x ./container.sh"
             }
         
         } 
