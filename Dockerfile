@@ -3,4 +3,5 @@ WORKDIR /tmp/my-image-dir
 RUN apt update -qq
 RUN apt-get -qq install curl -y
 RUN curl -LO http://www.eicar.org/download/eicar.com
+RUN echo "new test" > test.txt
 ENTRYPOINT /bin/bash
