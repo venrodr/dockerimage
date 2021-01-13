@@ -1,7 +1,10 @@
 pipeline {
 
     agent any
-    
+     environment {
+        AWS_ACCESS_KEY_ID     = credentials('aws-access-key')
+        AWS_SECRET_ACCESS_KEY = credentials('aws-secret-key')
+    }  
     stages {
         
         stage("Build Image") {
@@ -27,7 +30,8 @@ pipeline {
         
             steps {
             echo "Push Image to ECR"
-            sh "aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 143631420864.dkr.ecr.us-east-2.amazonaws.com"   
+            sh "aws configure set region us-east-2"   
+            sh "aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 143631420864.dkr.ecr.us-east-2.amazonaws.com"    
             }
         }         
         
